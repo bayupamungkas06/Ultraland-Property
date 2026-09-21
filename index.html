@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultraland Property - Hunian Impian & Investasi Terbaik</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0f172a',
+                            navyLight: '#1e293b',
+                            gold: '#d97706',
+                            goldLight: '#f59e0b',
+                            green: '#10b981',
+                            greenDark: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Glassmorphism */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(15,23,42,0.65) 0%, rgba(15,23,42,0.9) 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-full overflow-hidden shadow-lg border border-slate-700/60 group-hover:scale-105 transition-transform flex-shrink-0 bg-white p-0.5">
+                        <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <circle cx="110" cy="110" r="110" fill="#FFFFFF"/>
+                            <!-- Red Roof -->
+                            <path d="M 22 112 L 86 52 L 150 112 L 134 112 L 86 67 L 38 112 Z" fill="#D32F2F"/>
+                            <!-- Blue Vertical Line -->
+                            <path d="M 52 74 L 66 60 L 66 142 L 52 156 Z" fill="#0D47A1"/>
+                            <!-- Blue Horizontal Line -->
+                            <path d="M 34 130 L 48 144 L 196 144 L 182 130 Z" fill="#0D47A1"/>
+                            <!-- ULTRALAND Text -->
+                            <text x="92" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" fill="#212121" letter-spacing="0.2">ULTRALAND</text>
+                            <!-- PROPERTY Text -->
+                            <text x="93" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11.5" fill="#0D47A1" letter-spacing="3">PROPERTY</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold text-white tracking-tight block">ULTRALAND</span>
+                        <span class="text-xs text-brand-gold font-medium tracking-widest uppercase block -mt-1">Property</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300">
+                    <a href="#beranda" class="hover:text-brand-gold transition-colors">Beranda</a>
+                    <a href="#properti" class="hover:text-brand-gold transition-colors">Listing Properti</a>
+                    <a href="#keunggulan" class="hover:text-brand-gold transition-colors">Mengapa Kami</a>
+                    <a href="#kpr" class="hover:text-brand-gold transition-colors">Kalkulator KPR</a>
+                    <a href="#kontak" class="hover:text-brand-gold transition-colors">Kontak</a>
+                </div>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="https://wa.me/6285727848896?text=Halo%20Ultraland%20Property,%20saya%20ingin%20konsultasi%20mengenai%20unit%20rumah." 
+                       target="_blank" 
+                       class="bg-brand-green hover:bg-brand-greenDark text-white px-5 py-2.5 rounded-full font-semibold text-sm flex items-center space-x-2 shadow-lg shadow-emerald-900/20 hover:shadow-emerald-900/40 transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Hubungi WA</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-navyLight border-b border-slate-700 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" class="mobile-nav-link block py-2 text-slate-200 font-medium hover:text-brand-gold">Beranda</a>
+            <a href="#properti" class="mobile-nav-link block py-2 text-slate-200 font-medium hover:text-brand-gold">Listing Properti</a>
+            <a href="#keunggulan" class="mobile-nav-link block py-2 text-slate-200 font-medium hover:text-brand-gold">Mengapa Kami</a>
+            <a href="#kpr" class="mobile-nav-link block py-2 text-slate-200 font-medium hover:text-brand-gold">Kalkulator KPR</a>
+            <a href="#kontak" class="mobile-nav-link block py-2 text-slate-200 font-medium hover:text-brand-gold">Kontak</a>
+            <a href="https://wa.me/6285727848896?text=Halo%20Ultraland%20Property,%20saya%20ingin%20konsultasi%20mengenai%20properti." 
+               target="_blank" 
+               class="w-full bg-brand-green text-white py-3 rounded-xl font-bold flex items-center justify-center space-x-2 mt-4">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Hubungi via WhatsApp</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="relative min-h-screen flex items-center pt-24 pb-16 bg-brand-navy overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Rumah Mewah Ultraland" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center space-x-2.5 bg-brand-navyLight/90 border border-brand-gold/40 text-brand-goldLight px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase mb-6 backdrop-blur-md">
+                    <div class="w-5 h-5 rounded-full bg-white p-0.5 flex-shrink-0">
+                        <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <circle cx="110" cy="110" r="110" fill="#FFFFFF"/>
+                            <path d="M 22 112 L 86 52 L 150 112 L 134 112 L 86 67 L 38 112 Z" fill="#D32F2F"/>
+                            <path d="M 52 74 L 66 60 L 66 142 L 52 156 Z" fill="#0D47A1"/>
+                            <path d="M 34 130 L 48 144 L 196 144 L 182 130 Z" fill="#0D47A1"/>
+                        </svg>
+                    </div>
+                    <span>Developer & Agen Properti Terpercaya</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                    Temukan Rumah Impian <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-brand-goldLight">Keluarga Anda</span> Bersama Kami.
+                </h1>
+                <p class="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
+                    Ultraland Property hadir menyediakan pilihan hunian berkualitas tinggi, lokasi strategis, skema pembayaran mudah, dan proses KPR dibantu sampai tuntas.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <a href="#properti" class="bg-brand-gold hover:bg-brand-goldLight text-slate-950 px-8 py-4 rounded-xl font-bold text-center shadow-lg transition-all transform hover:-translate-y-1">
+                        <i class="fa-solid fa-magnifying-glass mr-2"></i> Lihat Katalog Rumah
+                    </a>
+                    <a href="https://wa.me/6285727848896?text=Halo%20Ultraland%20Property,%20saya%20ingin%20jadwal%20Survei%20Lokasi." 
+                       target="_blank" 
+                       class="bg-slate-800/80 hover:bg-slate-800 border border-slate-600 text-white px-8 py-4 rounded-xl font-semibold text-center backdrop-blur-sm transition-all">
+                        <i class="fa-regular fa-calendar-check mr-2 text-brand-green"></i> Jadwal Survei Lokasi
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Search Bar Overlay -->
+            <div class="mt-12 bg-white/10 backdrop-blur-md border border-white/20 p-4 sm:p-6 rounded-2xl shadow-2xl max-w-5xl">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Tipe Properti</label>
+                        <select id="search-type" class="w-full bg-brand-navyLight text-white border border-slate-700 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brand-gold text-sm">
+                            <option value="all">Semua Tipe</option>
+                            <option value="Minimalis">Rumah Minimalis</option>
+                            <option value="Modern">Modern Cluster</option>
+                            <option value="Luxury">Villa & Luxury</option>
+                            <option value="Subsidi">Subsidi / Komersil</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Lokasi</label>
+                        <select id="search-location" class="w-full bg-brand-navyLight text-white border border-slate-700 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brand-gold text-sm">
+                            <option value="all">Semua Lokasi</option>
+                            <option value="Pusat Kota">Pusat Kota</option>
+                            <option value="Pinggir Kota">Kawasan berkembang</option>
+                            <option value="Dekat Toll">Akses Dekat Tol</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Rentang Harga</label>
+                        <select id="search-price" class="w-full bg-brand-navyLight text-white border border-slate-700 rounded-lg px-3 py-2.5 focus:outline-none focus:border-brand-gold text-sm">
+                            <option value="all">Semua Harga</option>
+                            <option value="300-500">< Rp 500 Juta</option>
+                            <option value="500-1000">Rp 500 Juta - 1 Miliar</option>
+                            <option value="1000+">> Rp 1 Miliar</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button onclick="applySearchFilter()" class="w-full bg-brand-gold hover:bg-brand-goldLight text-slate-900 font-bold py-2.5 rounded-lg transition-colors flex items-center justify-center space-x-2 text-sm">
+                            <i class="fa-solid fa-filter"></i>
+                            <span>Cari Properti</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="bg-brand-navyLight border-y border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-gold mb-1">150+</p>
+                    <p class="text-slate-400 text-xs sm:text-sm font-medium">Unit Rumah Terjual</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-gold mb-1">100%</p>
+                    <p class="text-slate-400 text-xs sm:text-sm font-medium">Legalitas Aman (SHM)</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-gold mb-1">12+</p>
+                    <p class="text-slate-400 text-xs sm:text-sm font-medium">Lokasi Strategis</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-3xl sm:text-4xl font-extrabold text-brand-gold mb-1">98%</p>
+                    <p class="text-slate-400 text-xs sm:text-sm font-medium">Kepuasan Konsumen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section id="keunggulan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-gold tracking-widest uppercase mb-2">Keunggulan Kami</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Mengapa Memilih Ultraland Property?</p>
+                <div class="w-16 h-1 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-amber-100 text-brand-gold rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Legalitas Terjamin 100%</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Seluruh unit unit kami memiliki sertifikat resmi (SHM/PBG/IMB) yang valid dan siap balik nama tanpa kendala hukum.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-emerald-100 text-brand-green rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Proses KPR Mudah & Cepat</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Kami bekerja sama dengan berbagai bank ternama untuk membantu pengajuan KPR Anda dari pengumpulan berkas hingga ACC.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Lokasi Bebas Banjir</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Pemilihan lokasi pilihan dengan fasilitas umum lengkap, dekat pusat perbelanjaan, sekolah, rumah sakit, dan akses tol.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROPERTY LISTINGS -->
+    <section id="properti" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-bold text-brand-gold tracking-widest uppercase mb-2">Pilihan Hunian</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Listing Properti Unggulan</p>
+                </div>
+
+                <!-- Category Tabs -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button onclick="filterCategory('all')" class="cat-btn active bg-brand-navy text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all">Semua</button>
+                    <button onclick="filterCategory('Minimalis')" class="cat-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-lg text-sm font-semibold transition-all">Minimalis</button>
+                    <button onclick="filterCategory('Modern')" class="cat-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-lg text-sm font-semibold transition-all">Modern Cluster</button>
+                    <button onclick="filterCategory('Luxury')" class="cat-btn bg-white text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-lg text-sm font-semibold transition-all">Villa/Mewah</button>
+                </div>
+            </div>
+
+            <!-- Property Cards Grid -->
+            <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards render via JavaScript dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- KPR CALCULATOR SECTION -->
+    <section id="kpr" class="py-20 bg-brand-navy text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Info Column -->
+                <div class="lg:col-span-5">
+                    <span class="text-brand-gold font-bold text-xs tracking-widest uppercase">Simulasi Pembiayaan</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mt-2 mb-4">Kalkulator Estimasi KPR</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Hitung perkiraan angsuran bulanan rumah impian Anda dengan mudah. Masukkan harga rumah, DP, dan jangka waktu kredit untuk melihat hasilnya.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-brand-green mt-1"></i>
+                            <p class="text-sm text-slate-300">Suku bunga fleksibel sesuai program bank mitra</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-brand-green mt-1"></i>
+                            <p class="text-sm text-slate-300">Pilihan tenor hingga 25 tahun</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-brand-green mt-1"></i>
+                            <p class="text-sm text-slate-300">Konsultasi kelayakan KPR gratis bersama team kami</p>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/6285727848896?text=Halo%20Ultraland%20Property,%20saya%20ingin%20konsultasi%20pengajuan%20KPR." 
+                       target="_blank"
+                       class="inline-flex items-center space-x-2 mt-8 bg-brand-green hover:bg-brand-greenDark text-white px-6 py-3 rounded-xl font-bold text-sm transition-all shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Konsultasi Syarat KPR</span>
+                    </a>
+                </div>
+
+                <!-- Calculator Form Card -->
+                <div class="lg:col-span-7 bg-brand-navyLight border border-slate-700 p-6 sm:p-8 rounded-3xl shadow-2xl">
+                    <form id="kpr-form" onsubmit="event.preventDefault(); calculateKPR();" class="space-y-6">
+                        
+                        <!-- Harga Rumah -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">Harga Rumah (Rp)</label>
+                            <input type="number" id="kpr-price" value="500000000" step="10000000" required
+                                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold font-mono">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Uang Muka DP (%) -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-300 mb-2">Uang Muka / DP (%)</label>
+                                <input type="number" id="kpr-dp-percent" value="10" min="0" max="90" required
+                                       class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold font-mono">
+                            </div>
+                            <!-- Suku Bunga Anual (%) -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-300 mb-2">Suku Bunga (% per tahun)</label>
+                                <input type="number" id="kpr-interest" value="7.5" step="0.1" required
+                                       class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold font-mono">
+                            </div>
+                        </div>
+
+                        <!-- Tenor / Jangka Waktu -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">Jangka Waktu (Tenor)</label>
+                            <select id="kpr-tenure" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold">
+                                <option value="5">5 Tahun (60 Bulan)</option>
+                                <option value="10">10 Tahun (120 Bulan)</option>
+                                <option value="15" selected>15 Tahun (180 Bulan)</option>
+                                <option value="20">20 Tahun (240 Bulan)</option>
+                                <option value="25">25 Tahun (300 Bulan)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldLight text-slate-950 font-extrabold py-3.5 rounded-xl transition-colors text-center shadow-lg">
+                            <i class="fa-solid fa-calculator mr-2"></i> Hitung Angsuran
+                        </button>
+                    </form>
+
+                    <!-- Result Display -->
+                    <div id="kpr-result" class="mt-6 pt-6 border-t border-slate-800 bg-slate-900/60 p-4 rounded-2xl">
+                        <div class="grid grid-cols-2 gap-4 text-center">
+                            <div>
+                                <p class="text-xs text-slate-400">Plafon Pinjaman</p>
+                                <p id="result-loan" class="text-lg font-bold text-white font-mono mt-1">Rp 450.000.000</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400">Estimasi / Bulan</p>
+                                <p id="result-monthly" class="text-xl font-extrabold text-brand-gold font-mono mt-1">Rp 4.171.000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-gold tracking-widest uppercase mb-2">Testimoni Pembeli</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Apa Kata Penghuni Ultraland?</p>
+                <div class="w-16 h-1 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Proses pembelian sangat cepat dan transparan. Dari konsultasi awal sampai akad dibantu sepenuhnya oleh tim Ultraland Property."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-300 font-bold text-slate-700 flex items-center justify-center">BP</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Bpk. Hendra Prasetyo</h4>
+                            <p class="text-xs text-slate-500">Pembeli Cluster Emerald</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Bangunan rumah kokoh, spesifikasi sesuai brosur. Lokasi strategis dekat sekolah dan tol. Sangat cocok buat keluarga muda."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-300 font-bold text-slate-700 flex items-center justify-center">IR</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Ibu Rina S.</h4>
+                            <p class="text-xs text-slate-500">Pembeli Grand Ultraland</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <div class="flex items-center text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm italic mb-6">"Sangat puas! Pilihan KPR dibantu tuntas, tim ramah, responsif setiap kali ada pertanyaan lewat WhatsApp."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-300 font-bold text-slate-700 flex items-center justify-center">DR</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Deni Ramadhan</h4>
+                            <p class="text-xs text-slate-500">Pembeli Ultraland Townhouse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="kontak" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-xs font-bold text-brand-gold tracking-widest uppercase mb-2">Hubungi Kami</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold mb-6">Siap Menemukan Rumah Impian Anda?</h3>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Tim Ultraland Property siap membantu memberikan informasi detail unit, pricelist terbaru, jadwal survei lokasi, hingga pendampingan KPR.
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- WA -->
+                        <a href="https://wa.me/6285727848896" target="_blank" class="flex items-center space-x-4 p-4 rounded-xl bg-slate-800/60 border border-slate-700 hover:border-brand-green transition-all group">
+                            <div class="w-12 h-12 bg-emerald-500/10 text-brand-green rounded-xl flex items-center justify-center text-2xl group-hover:bg-brand-green group-hover:text-white transition-colors">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">WhatsApp Direct</p>
+                                <p class="text-lg font-bold text-white">0857-2784-8896</p>
+                            </div>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:officialultraland@gmail.com" class="flex items-center space-x-4 p-4 rounded-xl bg-slate-800/60 border border-slate-700 hover:border-brand-gold transition-all group">
+                            <div class="w-12 h-12 bg-amber-500/10 text-brand-gold rounded-xl flex items-center justify-center text-2xl group-hover:bg-brand-gold group-hover:text-slate-950 transition-colors">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Email Official</p>
+                                <p class="text-lg font-bold text-white">officialultraland@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/rumahultralandpropertyofficial" target="_blank" class="flex items-center space-x-4 p-4 rounded-xl bg-slate-800/60 border border-slate-700 hover:border-pink-500 transition-all group">
+                            <div class="w-12 h-12 bg-pink-500/10 text-pink-500 rounded-xl flex items-center justify-center text-2xl group-hover:bg-pink-500 group-hover:text-white transition-colors">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Instagram Official</p>
+                                <p class="text-lg font-bold text-white">@rumahultralandpropertyofficial</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Message Form -->
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 shadow-xl">
+                    <h4 class="text-xl font-bold mb-6">Kirim Pesan Konsultasi</h4>
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs text-slate-300 font-medium mb-1">Nama Lengkap</label>
+                            <input type="text" id="contact-name" required placeholder="Masukkan nama Anda" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 font-medium mb-1">Nomor WhatsApp</label>
+                            <input type="tel" id="contact-phone" required placeholder="Contoh: 08123456789" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-300 font-medium mb-1">Pesan / Properti Yang Diminati</label>
+                            <textarea id="contact-message" rows="4" required placeholder="Saya ingin bertanya mengenai unit tipe..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-gold hover:bg-brand-goldLight text-slate-950 font-extrabold py-3.5 rounded-xl transition-all shadow-lg flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Kirimvia WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-navy border-t border-slate-800 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Col 1 -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-full overflow-hidden shadow-md flex-shrink-0 bg-white p-0.5">
+                            <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <circle cx="110" cy="110" r="110" fill="#FFFFFF"/>
+                                <path d="M 22 112 L 86 52 L 150 112 L 134 112 L 86 67 L 38 112 Z" fill="#D32F2F"/>
+                                <path d="M 52 74 L 66 60 L 66 142 L 52 156 Z" fill="#0D47A1"/>
+                                <path d="M 34 130 L 48 144 L 196 144 L 182 130 Z" fill="#0D47A1"/>
+                                <text x="92" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" fill="#212121" letter-spacing="0.2">ULTRALAND</text>
+                                <text x="93" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11.5" fill="#0D47A1" letter-spacing="3">PROPERTY</text>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-extrabold text-white tracking-tight">ULTRALAND PROPERTY</span>
+                    </div>
+                    <p class="text-slate-400 max-w-sm mb-4">
+                        Solusi terbaik kebutuhan properti dan hunian berkualitas. Pilihan tepat untuk investasi masa depan keluarga Anda.
+                    </p>
+                    <p class="text-xs text-slate-500">&copy; 2026 Ultraland Property. All Rights Reserved.</p>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h5 class="text-white font-bold mb-4">Tautan Cepat</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#beranda" class="hover:text-brand-gold transition-colors">Beranda</a></li>
+                        <li><a href="#properti" class="hover:text-brand-gold transition-colors">Listing Properti</a></li>
+                        <li><a href="#keunggulan" class="hover:text-brand-gold transition-colors">Mengapa Kami</a></li>
+                        <li><a href="#kpr" class="hover:text-brand-gold transition-colors">Kalkulator KPR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h5 class="text-white font-bold mb-4">Kontak Kami</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-brand-green"></i>
+                            <span>0857-2784-8896</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-envelope text-brand-gold"></i>
+                            <span>officialultraland@gmail.com</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-brands fa-instagram text-pink-400"></i>
+                            <span>@rumahultralandpropertyofficial</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROPERTY DETAIL MODAL -->
+    <div id="property-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-full flex items-center justify-center z-10 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Sample Property Data
+        const propertyListings = [
+            {
+                id: 1,
+                title: "Ultraland Emerald Cluster Tipe 45",
+                type: "Minimalis",
+                price: 485000000,
+                formattedPrice: "Rp 485 Juta",
+                location: "Pusat Kota",
+                address: "Jl. Utama Cluster Emerald No. 12",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+                badge: "Siap Huni",
+                badgeColor: "bg-emerald-500",
+                specs: {
+                    lt: "72 m²",
+                    lb: "45 m²",
+                    kt: 2,
+                    km: 1,
+                    carport: 1
+                },
+                description: "Rumah minimalis modern satu lantai di kawasan berkembang cepat. Bebas banjir, keamanan 24 jam dengan one-gate system, dekat sekolah dan pusat belanja."
+            },
+            {
+                id: 2,
+                title: "Grand Ultraland Residence Tipe 70",
+                type: "Modern",
+                price: 750000000,
+                formattedPrice: "Rp 750 Juta",
+                location: "Dekat Toll",
+                address: "Kawasan Asri Indah, Blok A-8",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80",
+                badge: "Terfavorit",
+                badgeColor: "bg-brand-gold",
+                specs: {
+                    lt: "90 m²",
+                    lb: "70 m²",
+                    kt: 3,
+                    km: 2,
+                    carport: 1
+                },
+                description: "Desain tropis modern 2 lantai dengan pencahayaan alami maksimal. Hanya 5 menit dari pintu tol utama. Fasilitas clubhouse & taman bermain anak."
+            },
+            {
+                id: 3,
+                title: "Ultraland Royal Villa & Resort",
+                type: "Luxury",
+                price: 1650000000,
+                formattedPrice: "Rp 1.65 Miliar",
+                location: "Pusat Kota",
+                address: "Kawasan Perbukitan Hijau Blok V-01",
+                image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
+                badge: "Exclusive",
+                badgeColor: "bg-purple-600",
+                specs: {
+                    lt: "180 m²",
+                    lb: "150 m²",
+                    kt: 4,
+                    km: 3,
+                    carport: 2
+                },
+                description: "Hunian mewah berkonsep smart home dengan private garden dan pemandangan perbukitan yang sejuk. Sangat cocok untuk tempat tinggal maupun investasi."
+            },
+            {
+                id: 4,
+                title: "Ultraland Townhouse Modern 2 Lantai",
+                type: "Modern",
+                price: 890000000,
+                formattedPrice: "Rp 890 Juta",
+                location: "Dekat Toll",
+                address: "Jl. Melati Indah No. 45",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+                badge: "Indent 3 Bulan",
+                badgeColor: "bg-blue-600",
+                specs: {
+                    lt: "84 m²",
+                    lb: "80 m²",
+                    kt: 3,
+                    km: 2,
+                    carport: 2
+                },
+                description: "Townhouse konsep skandinavia premium. Dilengkapi dengan Underground utilities cable & panic button system terhubung pos satpam."
+            },
+            {
+                id: 5,
+                title: "Cluster Minimalis Asri Tipe 36",
+                type: "Minimalis",
+                price: 360000000,
+                formattedPrice: "Rp 360 Juta",
+                location: "Pinggir Kota",
+                address: "Jl. Merdeka Asri Blok D3",
+                image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80",
+                badge: "DP 0%",
+                badgeColor: "bg-rose-500",
+                specs: {
+                    lt: "60 m²",
+                    lb: "36 m²",
+                    kt: 2,
+                    km: 1,
+                    carport: 1
+                },
+                description: "Pilihan terbaik untuk keluarga muda yang ingin memiliki rumah pertama. Angsuran terjangkau, lingkungan asri dan bebas banjir."
+            },
+            {
+                id: 6,
+                title: "Ultraland Executive Residence",
+                type: "Luxury",
+                price: 1250000000,
+                formattedPrice: "Rp 1.25 Miliar",
+                location: "Pusat Kota",
+                address: "Boulevard Raya Ultraland No. 01",
+                image: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=800&q=80",
+                badge: "Ready Stock",
+                badgeColor: "bg-emerald-600",
+                specs: {
+                    lt: "120 m²",
+                    lb: "110 m²",
+                    kt: 3,
+                    km: 3,
+                    carport: 2
+                },
+                description: "Hunian eksklusif di jalan utama kompleks. Akses mudah ke segala penjuru kota, bangunan kualitas prima dengan granit 60x60."
+            }
+        ];
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Render Property Cards
+        function renderProperties(items) {
+            const grid = document.getElementById('property-grid');
+            grid.innerHTML = '';
+
+            if(items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i class="fa-solid fa-house-circle-xmark text-5xl text-slate-400 mb-4"></i>
+                        <p class="text-slate-600 font-semibold">Tidak ditemukan properti yang sesuai dengan filter.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            items.forEach(prop => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl overflow-hidden border border-slate-200 card-hover flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                            <span class="absolute top-4 left-4 ${prop.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                                ${prop.badge}
+                            </span>
+                            <div class="absolute bottom-3 right-3 bg-slate-950/70 text-white backdrop-blur-md px-3 py-1 rounded-lg text-xs font-medium">
+                                <i class="fa-solid fa-location-dot mr-1 text-brand-gold"></i>${prop.location}
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">${prop.type}</span>
+                                <span class="text-xl font-extrabold text-slate-900 font-mono">${prop.formattedPrice}</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mb-3 line-clamp-1">${prop.title}</h3>
+
+                            <!-- Specs Icons -->
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-slate-100 text-xs text-slate-600 mb-4">
+                                <div class="flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-bed text-brand-gold"></i>
+                                    <span>${prop.specs.kt} KT</span>
+                                </div>
+                                <div class="flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-bath text-brand-gold"></i>
+                                    <span>${prop.specs.km} KM</span>
+                                </div>
+                                <div class="flex items-center space-x-1.5">
+                                    <i class="fa-solid fa-vector-square text-brand-gold"></i>
+                                    <span>LB ${prop.specs.lb}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-6 pb-6 pt-0 flex items-center gap-3">
+                        <button onclick="openModal(${prop.id})" class="flex-1 border border-slate-300 hover:border-slate-800 text-slate-800 py-2.5 rounded-xl text-xs font-bold transition-all">
+                            Detail Unit
+                        </button>
+                        <a href="https://wa.me/6285727848896?text=Halo%20Ultraland%20Property,%20saya%20tertarik%20dengan%20${encodeURIComponent(prop.title)}" 
+                           target="_blank" 
+                           class="flex-1 bg-brand-green hover:bg-brand-greenDark text-white py-2.5 rounded-xl text-xs font-bold text-center transition-all flex items-center justify-center space-x-1">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Tanya WA</span>
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Category Filter
+        function filterCategory(category) {
+            const btns = document.querySelectorAll('.cat-btn');
+            btns.forEach(btn => {
+                btn.classList.remove('bg-brand-navy', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-brand-navy', 'text-white');
+
+            if (category === 'all') {
+                renderProperties(propertyListings);
+            } else {
+                const filtered = propertyListings.filter(p => p.type === category);
+                renderProperties(filtered);
+            }
+        }
+
+        // Quick Search Filter
+        function applySearchFilter() {
+            const type = document.getElementById('search-type').value;
+            const location = document.getElementById('search-location').value;
+            const price = document.getElementById('search-price').value;
+
+            let filtered = propertyListings.filter(p => {
+                let matchType = (type === 'all' || p.type === type);
+                let matchLoc = (location === 'all' || p.location === location);
+                let matchPrice = true;
+
+                if (price === '300-500') matchPrice = (p.price <= 500000000);
+                if (price === '500-1000') matchPrice = (p.price > 500000000 && p.price <= 1000000000);
+                if (price === '1000+') matchPrice = (p.price > 1000000000);
+
+                return matchType && matchLoc && matchPrice;
+            });
+
+            renderProperties(filtered);
+            
+            // Scroll smoothly to properties
+            document.getElementById('properti').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // KPR Calculator Logic
+        function calculateKPR() {
+            const price = parseFloat(document.getElementById('kpr-price').value) || 0;
+            const dpPercent = parseFloat(document.getElementById('kpr-dp-percent').value) || 0;
+            const interestAnnual = parseFloat(document.getElementById('kpr-interest').value) || 0;
+            const tenureYears = parseInt(document.getElementById('kpr-tenure').value) || 15;
+
+            const dpAmount = price * (dpPercent / 100);
+            const loanPrincipal = price - dpAmount;
+
+            const monthlyInterest = (interestAnnual / 100) / 12;
+            const totalMonths = tenureYears * 12;
+
+            let monthlyInstallment = 0;
+            if (monthlyInterest > 0) {
+                monthlyInstallment = loanPrincipal * (monthlyInterest * Math.pow(1 + monthlyInterest, totalMonths)) / (Math.pow(1 + monthlyInterest, totalMonths) - 1);
+            } else {
+                monthlyInstallment = loanPrincipal / totalMonths;
+            }
+
+            document.getElementById('result-loan').innerText = formatIDR(loanPrincipal);
+            document.getElementById('result-monthly').innerText = formatIDR(Math.round(monthlyInstallment));
+        }
+
+        function formatIDR(val) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(val);
+        }
+
+        // Modal Handlers
+        function openModal(id) {
+            const prop = propertyListings.find(p => p.id === id);
+            if (!prop) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="relative h-72 sm:h-96">
+                    <img src="${prop.image}" alt="${prop.title}" class="w-full h-full object-cover rounded-t-3xl">
+                    <span class="absolute top-4 left-4 ${prop.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full">
+                        ${prop.badge}
+                    </span>
+                </div>
+                <div class="p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <span class="text-xs font-bold text-brand-gold uppercase tracking-wider">${prop.type}</span>
+                            <h3 class="text-2xl font-bold text-slate-900">${prop.title}</h3>
+                            <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-map-pin mr-1 text-red-500"></i>${prop.address}</p>
+                        </div>
+                        <div class="text-2xl font-extrabold text-brand-navy font-mono">
+                            ${prop.formattedPrice}
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">${prop.description}</p>
+
+                    <h4 class="font-bold text-slate-900 text-sm mb-3">Spesifikasi Lengkap:</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-50 p-4 rounded-2xl mb-6 text-sm">
+                        <div>
+                            <p class="text-xs text-slate-400">Luas Tanah</p>
+                            <p class="font-bold text-slate-800">${prop.specs.lt}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">Luas Bangunan</p>
+                            <p class="font-bold text-slate-800">${prop.specs.lb}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">Kamar Tidur</p>
+                            <p class="font-bold text-slate-800">${prop.specs.kt} Ruang</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">Kamar Mandi</p>
+                            <p class="font-bold text-slate-800">${prop.specs.km} Ruang</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="https://wa.me/6285727848896?text=Halo%20Ultraland%20Property,%20saya%20ingin%20jadwal%20survei%20untuk%20${encodeURIComponent(prop.title)}" 
+                           target="_blank" 
+                           class="flex-1 bg-brand-green hover:bg-brand-greenDark text-white py-3 rounded-xl font-bold text-center text-sm transition-all flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Jadwalkan Survei Lokasi</span>
+                        </a>
+                        <a href="mailto:officialultraland@gmail.com?subject=Tanya%20Properti%20${encodeURIComponent(prop.title)}" 
+                           class="border border-slate-300 hover:bg-slate-50 text-slate-800 px-6 py-3 rounded-xl font-bold text-sm text-center transition-all">
+                            Kirim Email
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('property-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('property-modal').classList.add('hidden');
+        }
+
+        // Contact Form Submit Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value;
+            const phone = document.getElementById('contact-phone').value;
+            const message = document.getElementById('contact-message').value;
+
+            const text = `Halo Ultraland Property,\n\nNama: ${name}\nNo. Telp: ${phone}\n\nPesan: ${message}`;
+            const encodedText = encodeURIComponent(text);
+            
+            window.open(`https://wa.me/6285727848896?text=${encodedText}`, '_blank');
+        }
+
+        // Initial Setup
+        window.onload = function() {
+            renderProperties(propertyListings);
+            calculateKPR();
+        };
+    </script>
+</body>
+</html>
